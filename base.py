@@ -31,4 +31,23 @@ def get_resource_from_hapi_fhir(resource_id, resource_type):
     else:
         print(f"Error al obtener el recurso: {response.status_code}")
         print(response.json())
-
+def get_resource_by_document_number(document_number, resource_type):
+    # Definir la URL de búsqueda utilizando el número de documento
+    url = f"https://launch.smarthealthit.org/v/r4/fhir//{resource_type}?identifier={document_number}"
+    
+    # Realizar la solicitud GET al servidor FHIR con los encabezados apropiados
+    response = requests.get(url, headers={"Accept": "application/fhir+json"})
+    
+    # Verificar la respuesta
+    if response.status_code == 200:
+        resources = response.json()
+        
+        # Verificar si se encontró algún recurso
+        if 'entry' in resources:
+            for entry in resources['entry']:
+                print(entry['resource'])  # Imprime el recurso encontrado
+        else:
+            print("No se encontraron recursos con ese número de documento.")
+    else:
+        print(f"Error al obtener el recurso: {response.status_code}")
+        print(response.json())  # Mostrar detalles del error si lo hay
