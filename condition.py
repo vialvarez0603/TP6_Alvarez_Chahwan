@@ -4,15 +4,15 @@ from fhir.resources.identifier import Identifier
 from fhir.resources.reference import Reference
 
 # Crear el recurso FHIR de condición con parámetros opcionales
-def create_condition_resource(condition_code=None, patient_id=None, condition_status=None, onset_date=None, end_date=None, condition_id=None):
+def create_condition_resource(condition_code=None, patient_id=None, condition_status=None, onset_date=None, end_date=None, id=None):
     # Crear una instancia del recurso Condition
     condition = Condition()
 
     # Asignar un identificador único para la condición
-    if condition_id:
+    if id:
         identifier = Identifier()
         identifier.system = "http://example.org/fhir/condition/id"
-        identifier.value = condition_id
+        identifier.value = id
         condition.identifier = [identifier]
 
     # Agregar el código de la condición si está disponible
