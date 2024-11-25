@@ -5,7 +5,7 @@ from condition import create_condition_resource
 
 if __name__ == "__main__":
     # Parámetros del paciente
-    document_number = "43874953"  # Ejemplo de número de documento
+    document_number = "43874934"  # Ejemplo de número de documento
     family_name = "Alvarez"
     given_name = "Victoria"
     birth_date = "2002-03-06"
@@ -28,10 +28,9 @@ if __name__ == "__main__":
     # Crear el recurso Condition con los parámetros dados
     condition_resource = create_condition_resource(
         condition_code="Diabetes tipo 2",
-        patient_id="12345",
+        patient_id= patient_id,
         condition_status="active",
-        onset_date="2020-01-01",  # Usar formato string adecuado
-        end_date="2025-01-01",    # Usar formato string adecuado
+        onset_date="2020-01-01",  
         id="condition123"
     )
     # Enviar el recurso de dispositivo
