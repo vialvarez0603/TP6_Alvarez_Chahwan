@@ -41,6 +41,6 @@ if __name__ == "__main__":
 
     # Ver el recurso de dispositivo creado
     if condition__id:
-        get_resource_from_hapi_fhir(condition_resource, 'Condition')
+        get_resource_from_hapi_fhir(condition__id, 'Condition')
 
     print("\n")
